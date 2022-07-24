@@ -1,0 +1,16 @@
+- hosts: localhost
+  vars:
+    enc_private_ssh_key: "./.ssh/id_rsa"
+    private_ssh_key_file: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+  pre_tasks:
+  - name: Update Pacman
+    become: true
+    community.general.pacman:
+      force: yes
+      update_cache: true
+      upgrade: true
+      state: present
+    tags:
+      - base
+  tasks:
+    - include: tasks/ssh.yaml
