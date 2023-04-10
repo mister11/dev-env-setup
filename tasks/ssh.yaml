@@ -8,7 +8,7 @@
     - ssh
 - name: Install ssh key
   copy:
-    src: "{{ private_ssh_key_file }}"
+    src: "{{ enc_private_ssh_key }}"
     dest: "{{ private_ssh_key_file }}"
     mode: 0600
   tags:
@@ -16,7 +16,7 @@
     - ssh
 - name: Install ssh key public
   copy:
-    src: "{{ private_ssh_key_file }}.pub"
+    src: "{{ enc_private_ssh_key }}.pub"
     dest: "{{ private_ssh_key_file }}.pub"
     mode: 0644
   tags:
