@@ -1,7 +1,7 @@
 - hosts: localhost
   vars:
-    enc_private_ssh_key: "./.ssh/id_rsa"
-    private_ssh_key_file: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+    ssh_private_key_src: "./.ssh/id_rsa"
+    ssh_private_key_dst: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
   pre_tasks:
   - name: Update Pacman
     become: true
