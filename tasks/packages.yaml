@@ -1,0 +1,85 @@
+  - name: Install Pacman Packages
+    become: true
+    community.general.pacman:
+      name:
+        - arandr
+        - base-devel
+        - bat
+        - brave-browser
+        - clang
+        - clipmenu
+        - cmake
+        - dialog
+        - docker
+        - evince
+        - exa
+        - fd
+        - feh
+        - firefox
+        - fzf
+        - go
+        - gsimplecal
+        - htop
+        - httpie
+        - inotify-tools
+        - jq
+        - keepassxc
+        - kitty
+        - leafpad
+        - llvm
+        - lxappearance
+        - make
+        - nano
+        - ncdu
+        - neofetch
+        - neovim
+        - networkmanager
+        - networkmanager-l2tp
+        - networkmanager-openconnect
+        - networkmanager-strongswan
+        - pavucontrol
+        - polkit-gnome
+        - py3status
+        - python
+        - ranger
+        - ripgrep
+        - rofi
+        - stow
+        - thunar
+        - thunar-archive-plugin
+        - thunar-volman
+        - tldr
+        - tlp
+        - tmux
+        - ttf-fira-code
+        - ttf-jetbrains-mono
+        - tzdata
+        - unzip
+        - viewnior
+        - vim
+        - vivaldi
+        - vlc
+        - wget
+        - xfce4-power-manager
+        - xss-lock
+        - yay
+        - yq
+        - zip
+        - zsh
+      state: present
+  - name: Install Yay Packages
+    kewlfft.aur.aur:
+      name:
+        - asdf-vm
+        - i3lock-fancy-rapid-git
+        - insomnia
+        - intellij-idea-ce
+        - megasync-bin
+        - ngrok
+        - obsidian-appimage
+        - spotify
+        - visual-studio-code-bin
+      state: present
+    tags:
+      - base
+
