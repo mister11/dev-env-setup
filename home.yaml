@@ -1,7 +1,9 @@
 - hosts: localhost
   vars:
-    ssh_private_key_src: "./.ssh/id_rsa"
-    ssh_private_key_dst: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+    ssh_private_rsa_src: "./.ssh/id_rsa"
+    ssh_private_ed_src: "./.ssh/id_ed25519"
+    ssh_private_rsa_dst: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+    ssh_private_ed_dst: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
   pre_tasks:
   - name: Update Pacman
     become: true
@@ -14,5 +16,6 @@
       - base
   tasks:
     - include: tasks/ssh.yaml
+    - include: tasks/ssh-work.yaml
     - include: tasks/packages.yaml
     - include: tasks/zsh-setup.yaml
