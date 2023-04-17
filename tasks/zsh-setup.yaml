@@ -1,0 +1,21 @@
+- name: Change shell to zsh
+  shell: chsh -s $(which zsh)
+
+- name: Check if Oh-My-ZSH is installed
+  stat:
+    path: "{{ lookup('env', 'HOME') }}/.oh-my-zsh" 
+  register: oh_my_zsh_exists
+
+- name: Install Oh-My-ZSH
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  when: oh_my_zsh_exists.stat.exists == False
+
+- name: Install Oh-My-ZSH auto-complete plugin
+  git:
+    repo: "git clone https://github.com/zsh-users/zsh-autosuggestions"
+    dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
+
+- name: Install Oh-My-ZSH syntax highlighting plugin
+  git:
+    repo: "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    dest: "~/.oh-my-zsh/plugins/zsh-syntax-highlighting"

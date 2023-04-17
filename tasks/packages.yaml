@@ -87,7 +87,7 @@
       name:
         - asdf-vm
         - i3lock-fancy-rapid-git
-        - insomnia
+        - insomnia-bin
         - intellij-idea-ce
         - megasync-bin
         - ngrok
@@ -95,7 +95,7 @@
         - spotify
         - visual-studio-code-bin
       state: present
-    become: true
+    become: yes
     become_user: aur_builder      
     tags:
       - base
