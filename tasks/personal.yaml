@@ -1,0 +1,20 @@
+- name: Clone personal dotfiles
+  git:
+    repo: "git@github.com:mister11/.dotfiles-personal.git"
+    dest: "~/.dotfiles-personal"
+  tags:
+    - base
+
+- name: Copy home setup stuff
+  copy:
+    src: "~/.dotfiles-personal/home"
+    dest: "~/.personal"
+  tags:
+    - home
+
+- name: Copy work setup stuff
+  copy:
+    src: "~/.dotfiles-personal/work"
+    dest: "~/.personal"
+  tags:
+    - work

@@ -19,3 +19,4 @@
     - include: tasks/ssh-work.yaml
     - include: tasks/packages.yaml
     - include: tasks/zsh-setup.yaml
+    - include: tasks/personal.yaml
