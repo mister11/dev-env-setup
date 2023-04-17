@@ -2,4 +2,4 @@
 
 sudo pacman -S ansible
 ansible-galaxy collection install kewlfft.aur
-ansible-playbook --ask-become-pass --ask-vault-pass home.yaml
+ansible-playbook --ask-become-pass --ask-vault-pass work.yaml
