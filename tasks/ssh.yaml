@@ -4,21 +4,27 @@
     mode: 0700
     state: directory
   tags:
-    - base
     - home
+
 - name: Install SSH private key
   copy:
     src: "{{ ssh_private_rsa_src }}"
     dest: "{{ ssh_private_rsa_dst }}"
     mode: 0600
   tags:
-    - base
     - home
+
 - name: Install SSH public key
   copy:
     src: "{{ ssh_private_rsa_src }}.pub"
     dest: "{{ ssh_private_rsa_dst }}.pub"
     mode: 0644
   tags:
-    - base
+    - home
+
+- name: Copy SSH config
+  copy:
+    src: "{{ ssh_private_rsa_src | dirname }}/config"
+    dest: "{{ ssh_private_rsa_dst | dirname }}/config"
+  tags:
     - home
