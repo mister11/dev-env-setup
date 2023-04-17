@@ -1,4 +1,5 @@
 - name: Change shell to zsh
+  become: true
   shell: chsh -s $(which zsh)
 
 - name: Check if Oh-My-ZSH is installed
@@ -12,10 +13,10 @@
 
 - name: Install Oh-My-ZSH auto-complete plugin
   git:
-    repo: "git clone https://github.com/zsh-users/zsh-autosuggestions"
+    repo: "https://github.com/zsh-users/zsh-autosuggestions"
     dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
 
 - name: Install Oh-My-ZSH syntax highlighting plugin
   git:
-    repo: "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
     dest: "~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
