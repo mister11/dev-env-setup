@@ -1,6 +1,6 @@
 - name: Ensure .ssh directory exists.
   file:
-    dest: "{{ ssh_private_work_src | dirname }}"
+    dest: "{{ ssh_private_dst | dirname }}"
     mode: 0700
     state: directory
   tags:

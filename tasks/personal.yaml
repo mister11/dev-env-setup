@@ -2,6 +2,7 @@
   git:
     repo: "git@github.com:mister11/.dotfiles-personal.git"
     dest: "~/.dotfiles-personal"
+    accept_hostkey: true
   tags:
     - base
 
