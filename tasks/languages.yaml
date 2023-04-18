@@ -1,0 +1,66 @@
+- name: Install latest LTS Java version
+  shell: |
+    asdf plugin add java
+    
+    version=$(asdf list all java | grep temurin-17 | tail -n 1)
+
+    asdf install java $version
+    asdf global java $version
+  tags:
+    - base
+    - java
+
+- name: Check if Rust installed
+  stat:
+    path: "{{ lookup('env', 'HOME') }}/.cargo/bin/rustup"
+  register: rust_installed
+  tags:
+    - base
+    - rust
+
+- name: Install Rust
+  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  when: rust_installed.stat.exists == False
+  tags:
+    - base
+    - rust
+
+- name: Update Rust
+  shell: rustup update
+  when: rust_installed.stat.exists == True
+  tags:
+    - base
+    - rust
+
+- name: Install Erlang
+  shell: |
+    asdf plugin add erlang
+
+    latest_version=$(asdf list all erlang | grep -v "rc" | tail -n 1)
+
+    asdf install erlang $latest_version
+    asdf global erlang $latest_version
+  tags:
+    - base
+    - erlang
+
+- name: Install Elixir
+  shell: |
+    asdf plugin add elixir
+
+    install_elixir
+  tags:
+    - base
+    - elixir
+
+- name: Install Node
+  shell: |
+    asdf plugin add nodejs
+
+    latest_version=$(asdf list all nodejs | grep -v "[a-zA-Z]" | tail -n 1)
+
+    asdf install nodejs $latest_version
+    asdf global nodejs $latest_version
+  tags:
+    - base
+    - node
