@@ -1,6 +1,6 @@
 - name: Ensure .ssh directory exists.
   file:
-    dest: "{{ ssh_private_ed_dst | dirname }}"
+    dest: "{{ ssh_private_work_src | dirname }}"
     mode: 0700
     state: directory
   tags:
@@ -8,23 +8,23 @@
 
 - name: Install SSH private key
   copy:
-    src: "{{ ssh_private_ed_src }}"
-    dest: "{{ ssh_private_ed_dst }}"
+    src: "{{ ssh_private_work_src }}"
+    dest: "{{ ssh_private_dst }}"
     mode: 0600
   tags:
     - work
 
 - name: Install SSH public key
   copy:
-    src: "{{ ssh_private_ed_src }}.pub"
-    dest: "{{ ssh_private_ed_dst }}.pub"
+    src: "{{ ssh_private_work_src }}.pub"
+    dest: "{{ ssh_private_dst }}.pub"
     mode: 0644
   tags:
     - work
 
 - name: Copy SSH config
   copy:
-    src: "{{ ssh_private_ed_src | dirname }}/config"
-    dest: "{{ ssh_private_ed_dst | dirname }}/config"
+    src: "{{ ssh_private_work_src | dirname }}/config"
+    dest: "{{ ssh_private_dst | dirname }}/config"
   tags:
     - work
