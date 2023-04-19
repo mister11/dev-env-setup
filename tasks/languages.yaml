@@ -8,6 +8,7 @@
     asdf global java $version
   tags:
     - base
+    - languages
     - java
 
 - name: Check if Rust installed
@@ -16,6 +17,7 @@
   register: rust_installed
   tags:
     - base
+    - languages
     - rust
 
 - name: Install Rust
@@ -23,6 +25,7 @@
   when: rust_installed.stat.exists == False
   tags:
     - base
+    - languages
     - rust
 
 - name: Update Rust
@@ -30,6 +33,7 @@
   when: rust_installed.stat.exists == True
   tags:
     - base
+    - languages
     - rust
 
 - name: Install Erlang
@@ -42,6 +46,7 @@
     asdf global erlang $latest_version
   tags:
     - base
+    - languages
     - erlang
 
 - name: Install Elixir
@@ -51,6 +56,7 @@
     install_elixir
   tags:
     - base
+    - languages
     - elixir
 
 - name: Install Node
@@ -63,4 +69,5 @@
     asdf global nodejs $latest_version
   tags:
     - base
+    - languages
     - node

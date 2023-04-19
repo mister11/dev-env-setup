@@ -5,6 +5,7 @@
     accept_hostkey: true
   tags:
     - base
+    - dotfiles
 
 - name: Stow dotfiles
   shell: |
@@ -12,3 +13,4 @@
     ./install
   tags:
     - base
+    - dotfiles

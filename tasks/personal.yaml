@@ -5,6 +5,7 @@
     accept_hostkey: true
   tags:
     - base
+    - dotfiles-personal
 
 - name: Copy home setup stuff
   copy:
@@ -12,6 +13,7 @@
     dest: "~/.personal"
   tags:
     - home
+    - dotfiles-personal-home
 
 - name: Copy work setup stuff
   copy:
@@ -19,3 +21,4 @@
     dest: "~/.personal"
   tags:
     - work
+    - dotfiles-personal-work

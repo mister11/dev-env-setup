@@ -1,7 +1,6 @@
 - hosts: localhost
   vars:
     ssh_private_personal_src: "./.ssh/id_ed25519"
-    ssh_private_work_src: "./.ssh-work/id_ed25519"
     ssh_private_dst: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
   pre_tasks:
   - name: Update Pacman
@@ -15,7 +14,6 @@
       - base
   tasks:
     - include: tasks/ssh.yaml
-    - include: tasks/ssh-work.yaml
     - include: tasks/packages.yaml
     - include: tasks/zsh-setup.yaml
     - include: tasks/personal.yaml

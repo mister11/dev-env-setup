@@ -70,6 +70,7 @@
       state: present
     tags:
       - base
+      - packages
   - name: Create the `aur_builder` user
     become: true
     ansible.builtin.user:
@@ -78,6 +79,7 @@
       group: wheel
     tags:
       - base
+      - packages
 
   - name: Allow the `aur_builder` user to run `sudo pacman` without a password
     become: true
@@ -88,6 +90,7 @@
       validate: 'visudo -cf %s'
     tags:
       - base
+      - packages
 
   - name: Install Yay Packages
     kewlfft.aur.aur:
@@ -106,4 +109,5 @@
     become_user: aur_builder      
     tags:
       - base
+      - packages
 

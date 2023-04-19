@@ -3,6 +3,7 @@
   shell: chsh -s $(which zsh)
   tags:
     - base
+    - zsh
 
 - name: Check if Oh-My-ZSH is installed
   stat:
@@ -10,12 +11,14 @@
   register: oh_my_zsh_exists
   tags:
     - base
+    - zsh
 
 - name: Install Oh-My-ZSH
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   when: oh_my_zsh_exists.stat.exists == False
   tags:
     - base
+    - zsh
 
 - name: Install Oh-My-ZSH auto-complete plugin
   git:
@@ -23,6 +26,7 @@
     dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
   tags:
     - base
+    - zsh
 
 - name: Install Oh-My-ZSH syntax highlighting plugin
   git:
@@ -30,3 +34,4 @@
     dest: "~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
   tags:
     - base
+    - zsh
