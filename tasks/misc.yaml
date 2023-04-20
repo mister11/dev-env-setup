@@ -1,0 +1,17 @@
+- name: Start Docker service
+  become: true
+  systemd:
+    name: docker.service
+    state: started
+  tags:
+    - base
+    - docker
+
+- name: Start containerd service
+  become: true
+  systemd:
+    name: containerd.service
+    state: started
+  tags:
+    - base
+    - docker

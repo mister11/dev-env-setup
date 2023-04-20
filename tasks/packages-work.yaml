@@ -1,0 +1,10 @@
+- name: Install Pacman Packages for Work
+  become: true
+  community.general.pacman:
+    name:
+      - kubectl
+    state: present
+  tags:
+    - base
+    - work
+    - packages-work

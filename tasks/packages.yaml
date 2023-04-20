@@ -11,6 +11,7 @@
         - cmake
         - dialog
         - docker
+        - docker-compose
         - evince
         - exa
         - fd
@@ -37,6 +38,7 @@
         - networkmanager-l2tp
         - networkmanager-openconnect
         - networkmanager-strongswan
+        - obs-studio
         - pavucontrol
         - polkit-gnome
         - py3status

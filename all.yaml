@@ -15,6 +15,8 @@
   tasks:
     - include: tasks/ssh.yaml
     - include: tasks/packages.yaml
+    - include: tasks/packages-work.yaml
     - include: tasks/zsh-setup.yaml
     - include: tasks/personal.yaml
     - include: tasks/languages.yaml
+    - include: tasks/dotfiles.yaml
