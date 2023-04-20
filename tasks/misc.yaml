@@ -1,3 +1,22 @@
+- name: Create Docker group
+  become: true
+  group:
+    name: docker
+    state: present
+  tags:
+    - base
+    - docker
+
+- name: Add user to Docker group
+  become: true
+  user:
+    name: "{{ lookup('env', 'USER') }}"
+    group: docker
+    append: yes
+  tags:
+    - base
+    - docker
+
 - name: Start Docker service
   become: true
   systemd:

@@ -20,3 +20,4 @@
     - include: tasks/personal.yaml
     - include: tasks/languages.yaml
     - include: tasks/dotfiles.yaml
+    - include: tasks/misc.yaml
