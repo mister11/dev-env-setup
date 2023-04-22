@@ -2,6 +2,7 @@
   vars:
     ssh_private_personal_src: "./.ssh/id_ed25519"
     ssh_private_dst: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    asdf_bin: "/opt/asdf-vm/bin/asdf"
   pre_tasks:
   - name: Update Pacman
     become: true
@@ -18,6 +19,6 @@
     - include: tasks/packages-work.yaml
     - include: tasks/zsh-setup.yaml
     - include: tasks/personal.yaml
-    - include: tasks/languages.yaml
     - include: tasks/dotfiles.yaml
+    - include: tasks/languages.yaml
     - include: tasks/misc.yaml

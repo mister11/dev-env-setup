@@ -1,11 +1,11 @@
 - name: Install latest LTS Java version
   shell: |
-    asdf plugin add java
+    {{ asdf_bin }} plugin add java
     
-    version=$(asdf list all java | grep temurin-17 | tail -n 1)
+    version=$({{ asdf_bin }} list all java | grep temurin-17 | tail -n 1)
 
-    asdf install java $version
-    asdf global java $version
+    {{ asdf_bin }} install java $version
+    {{ asdf_bin }} global java $version:
   tags:
     - base
     - languages
@@ -21,7 +21,7 @@
     - rust
 
 - name: Install Rust
-  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   when: rust_installed.stat.exists == False
   tags:
     - base
@@ -38,12 +38,12 @@
 
 - name: Install Erlang
   shell: |
-    asdf plugin add erlang
+    {{ asdf_bin }} plugin add erlang
 
-    latest_version=$(asdf list all erlang | grep -v "rc" | tail -n 1)
+    latest_version=$({{ asdf_bin }} list all erlang | grep -v "rc" | tail -n 1)
 
-    asdf install erlang $latest_version
-    asdf global erlang $latest_version
+    {{ asdf_bin }} install erlang $latest_version
+    {{ asdf_bin }} global erlang $latest_version
   tags:
     - base
     - languages
@@ -51,9 +51,9 @@
 
 - name: Install Elixir
   shell: |
-    asdf plugin add elixir
+    {{ asdf_bin }} plugin add elixir
 
-    install_elixir
+    source /opt/asdf-vm/asdf.sh && . ~/.local/bin/install_elixir
   tags:
     - base
     - languages
@@ -61,12 +61,12 @@
 
 - name: Install Node
   shell: |
-    asdf plugin add nodejs
+    {{ asdf_bin }} plugin add nodejs
 
-    latest_version=$(asdf list all nodejs | grep -v "[a-zA-Z]" | tail -n 1)
+    latest_version=$({{ asdf_bin }} list all nodejs | grep -v "[a-zA-Z]" | tail -n 1)
 
-    asdf install nodejs $latest_version
-    asdf global nodejs $latest_version
+    source /opt/asdf-vm/asdf.sh && {{ asdf_bin }} install nodejs $latest_version
+    {{ asdf_bin }} global nodejs $latest_version
   tags:
     - base
     - languages

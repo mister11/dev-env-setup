@@ -9,16 +9,16 @@
 
 - name: Copy home setup stuff
   copy:
-    src: "~/.dotfiles-personal/home"
-    dest: "~/.personal"
+    src: "~/.dotfiles-personal/home/"
+    dest: "~/.personal/"
   tags:
     - home
     - dotfiles-personal-home
 
 - name: Copy work setup stuff
   copy:
-    src: "~/.dotfiles-personal/work"
-    dest: "~/.personal"
+    src: "~/.dotfiles-personal/work/"
+    dest: "~/.personal/"
   tags:
     - work
     - dotfiles-personal-work
