@@ -53,7 +53,7 @@
   shell: |
     {{ asdf_bin }} plugin add elixir
 
-    source /opt/asdf-vm/asdf.sh && . ~/.local/bin/install_elixir
+    source {{ asdf_sh }} && . ~/.local/bin/install_elixir
   tags:
     - base
     - languages
@@ -65,7 +65,7 @@
 
     latest_version=$({{ asdf_bin }} list all nodejs | grep -v "[a-zA-Z]" | tail -n 1)
 
-    source /opt/asdf-vm/asdf.sh && {{ asdf_bin }} install nodejs $latest_version
+    source {{ asdf_sh }} && {{ asdf_bin }} install nodejs $latest_version
     {{ asdf_bin }} global nodejs $latest_version
   tags:
     - base
