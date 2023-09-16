@@ -13,7 +13,7 @@
         - docker
         - docker-compose
         - evince
-        - exa
+        - eza
         - fd
         - feh
         - firefox
