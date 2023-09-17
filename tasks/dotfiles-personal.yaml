@@ -7,18 +7,18 @@
     - base
     - dotfiles-personal
 
-- name: Copy home setup stuff
-  copy:
-    src: "~/.dotfiles-personal/home/"
-    dest: "~/.personal/"
+- name: Symlink home personal stuff
+  shell: |
+    cd ~/.dotfiles-personal
+    ./install home
   tags:
     - home
     - dotfiles-personal-home
 
-- name: Copy work setup stuff
-  copy:
-    src: "~/.dotfiles-personal/work/"
-    dest: "~/.personal/"
+- name: Symlink work personal stuff
+  shell: |
+    cd ~/.dotfiles-personal
+    ./install work
   tags:
     - work
     - dotfiles-personal-work
