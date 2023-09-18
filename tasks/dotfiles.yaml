@@ -12,6 +12,9 @@
     if [ ! -L "$HOME/.zshrc" ] && [ -e "$HOME/.zshrc" ]; then
       rm $HOME/.zshrc
     fi
+  tags:
+    - base
+    - dotfiles
 
 - name: Stow dotfiles
   shell: |
