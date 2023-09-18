@@ -6,6 +6,12 @@
   tags:
     - base
     - dotfiles
+  
+- name: Remove default zshrc (created by zsh install)
+  shell: |
+    if [ ! -L "$HOME/.zshrc" ] && [ -e "$HOME/.zshrc" ]; then
+      rm $HOME/.zshrc
+    fi
 
 - name: Stow dotfiles
   shell: |
