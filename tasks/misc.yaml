@@ -34,3 +34,13 @@
   tags:
     - base
     - docker
+
+- name: Start tlp service
+  become: true
+  systemd:
+    name: tlp.service
+    state: started
+  tags:
+    - base
+    - laptop
+    - power-mgmt

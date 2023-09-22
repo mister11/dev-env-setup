@@ -1,4 +1,4 @@
-  - name: Remove yay-bin
+  - name: Remove yay-bin # Arcolinux installs it by default
     become: true
     community.general.pacman:
       name:
@@ -21,6 +21,7 @@
         - dialog
         - docker
         - docker-compose
+        - dunst
         - evince
         - eza
         - fd
@@ -80,6 +81,16 @@
         - zip
         - zsh
       state: present
+    tags:
+      - base
+      - packages
+  - name: Remove extra packages
+    become: true
+    community.general.pacman:
+      name:
+        - xfce4-notifyd # xfce4-power-manager depends on it, but it overrides dunst
+      state: removed
+      force: true
     tags:
       - base
       - packages
