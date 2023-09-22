@@ -1,5 +1,9 @@
-- name: Change shell to zsh
-  shell: chsh -s $(which zsh)
+- name: Change shell to ZSH for default user
+  user:
+    name: "{{ lookup('env', 'USER') }}"
+    shell: /usr/bin/zsh
+    state: present
+  become: true
   tags:
     - base
     - zsh
