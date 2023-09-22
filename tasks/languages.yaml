@@ -36,6 +36,15 @@
     - languages
     - rust
 
+- name: Install Golang
+  shell: |
+    {{ asdf_bin }} plugin add golang
+
+    latest_version=$({{ asdf_bin }} list all golang | grep -v "rc" | tail -n 1)
+
+    {{ asdf_bin }} install golang $latest_version
+    {{ asdf_bin }} global golang $latest_version
+
 - name: Install Erlang
   shell: |
     {{ asdf_bin }} plugin add erlang
