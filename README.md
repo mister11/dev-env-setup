@@ -1,6 +1,13 @@
-# Fix
+# Work
 
-* rofi resolution (might just be VM problem) -> CHECK with install on proper laptop
+- SSH keys
+- k8s certs
+- rofi scripts
+- scripts (tokens)
+
+# Check
+
+* rofi resolution (might just be VM problem)
 
 # Nice to have:
 
