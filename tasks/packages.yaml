@@ -1,3 +1,12 @@
+  - name: Remove yay-bin
+    become: true
+    community.general.pacman:
+      name:
+        - yay-bin
+      state: removed
+    tags:
+      - base
+      - packages
   - name: Install Pacman Packages
     become: true
     community.general.pacman:
@@ -109,7 +118,7 @@
         - spotify
         - visual-studio-code-bin
       state: present
-    become: yes
+    become: true
     become_user: aur_builder      
     tags:
       - base
