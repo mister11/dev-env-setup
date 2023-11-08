@@ -1,6 +1,6 @@
 # Fix
 
-Packages needed to install Erlang with docs (needed for Elixir): `pacman -S libxslt fop `
+Install Erlang with docs: `export KERL_BUILD_DOCS="yes"`
 
 # Work
 
