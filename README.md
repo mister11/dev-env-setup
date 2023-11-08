@@ -1,3 +1,7 @@
+# Fix
+
+Packages needed to install Erlang with docs (needed for Elixir): `pacman -S libxslt fop `
+
 # Work
 
 - SSH keys
