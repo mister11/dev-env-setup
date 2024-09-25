@@ -50,6 +50,7 @@
         - networkmanager-strongswan
         - obs-studio
         - pavucontrol
+        - pipewire
         - polkit-gnome
         - py3status
         - python
@@ -120,8 +121,6 @@
       name:
         - asdf-vm
         - i3lock-fancy-rapid-git
-        - insomnia-bin
-        - intellij-idea-ce
         - megasync-bin
         - ngrok
         - obsidian-appimage
